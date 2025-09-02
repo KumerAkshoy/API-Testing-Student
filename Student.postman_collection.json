@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "08ad2257-b726-43b3-94f9-a46ed614883f",
+		"name": "Student",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36727976"
+	},
+	"item": [
+		{
+			"name": "List of student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Fixed syntax for header validation\r",
+							"pm.test(\"status code is 200\", ()=> {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// this for validate the status message\r",
+							"pm.test(\"status message is OK\", ()=> {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"// This for validation of response time\r",
+							"pm.test(\"response time is less than 100ms\", ()=> {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});\r",
+							"\r",
+							"// This for Header-content-type validation\r",
+							"pm.test(\"content type available for Header\", ()=> {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"}); \r",
+							"\r",
+							"pm.test(\"content-type header validation\", ()=> {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Fixed syntax for header validation\r",
+							"pm.test(\"status code is 200\", ()=> {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// this for validate the status message\r",
+							"pm.test(\"status message is OK\", ()=> {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"// This for validation of response time\r",
+							"pm.test(\"response time is less than 100ms\", ()=> {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});\r",
+							"\r",
+							"// This for Header-content-type validation\r",
+							"pm.test(\"content type available for Header\", ()=> {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"}); \r",
+							"\r",
+							"pm.test(\"content-type header validation\", ()=> {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"//creating a variable\r",
+							"var jsonData=pm.response.json();\r",
+							"// This for response body validation\r",
+							"pm.test(\"response body is valid\", () => {\r",
+							"    pm.expect(jsonData).to.be.an(\"object\");\r",
+							"    pm.expect(jsonData.id).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.name).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.age).to.be.a(\"number\");\r",
+							"    pm.expect(jsonData.major).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.email).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"// Data validation\r",
+							"pm.test(\"response data is correct\", () => { \r",
+							"    pm.expect(jsonData.id).to.eql(\"1\");\r",
+							"    pm.expect(jsonData.name).to.eql(\"Alice\");\r",
+							"    pm.expect(jsonData.age).to.eql(21);\r",
+							"    pm.expect(jsonData.major).to.eql(\"Computer Science\");\r",
+							"    pm.expect(jsonData.email).to.eql(\"alice@example.com\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new data in list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// this for staus code validation\r",
+							"pm.test(\"status code is 201\", ()=>{\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// this for validate the status message\r",
+							"pm.test(\"status message is Created\", ()=>{\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});\r",
+							"\r",
+							"// This for validation of response time\r",
+							"pm.test(\"response time is less than 100ms\", ()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Tim Cook\",\r\n    \"age\": 22,\r\n    \"major\": \"EEE\",\r\n    \"email\": \"tim@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update record",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// this for staus code validation\r",
+							"pm.test(\"status code is 200\", ()=>{\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// this for validate the status message\r",
+							"pm.test(\"status message is OK\", ()=>{\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"// This for validation of response time\r",
+							"pm.test(\"response time is less than 100ms\", ()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});\r",
+							"\r",
+							"// This for validation values of response body\r",
+							"    pm.test(\"response body contains correct data\", () => {\r",
+							"        const responseData = pm.response.json();\r",
+							"        pm.expect(responseData.name).to.eql(\"Alaister\");\r",
+							"        pm.expect(responseData.age).to.eql(21);\r",
+							"        pm.expect(responseData.major).to.eql(\"Business Studies\");\r",
+							"        pm.expect(responseData.email).to.eql(\"alaister@example.com\");\r",
+							"    });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Alaister\",\r\n    \"age\": 21,\r\n    \"major\": \"Business Studies\",\r\n    \"email\": \"alaister@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete a record",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// this for staus code validation\r",
+							"pm.test(\"status code is 200\", ()=>{\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,204]);\r",
+							"});\r",
+							"\r",
+							"// this for validate the status message\r",
+							"pm.test(\"status message is OK\", ()=>{\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"// This for validation of response time\r",
+							"pm.test(\"response time is less than 100ms\", ()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/students/834b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"834b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update single attribute",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// this for staus code validation\r",
+							"pm.test(\"status code is 200\", ()=>{\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// this for validate the status message\r",
+							"pm.test(\"status message is OK\", ()=>{\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"// This for validation of response time\r",
+							"pm.test(\"response time is less than 100ms\", ()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});\r",
+							"\r",
+							"//This is for validate values of response body\r",
+							"pm.test(\"validate response body\", ()=>{\r",
+							"    const responseData = pm.response.json();\r",
+							"    pm.expect(responseData.age).to.eql(22);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\": 22\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/students/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

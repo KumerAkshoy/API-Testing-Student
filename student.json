@@ -1,0 +1,53 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "Alice",
+      "age": 21,
+      "major": "Computer Science",
+      "email": "alice@example.com"
+    },
+    {
+      "id": "3",
+      "name": "Carol",
+      "age": 22,
+      "major": "Physics",
+      "email": "carol@example.com"
+    },
+    {
+      "id": "2",
+      "name": "Bob",
+      "age": 22,
+      "major": "Mathematics",
+      "email": "bob@example.com"
+    },
+    {
+      "name": "Alaister",
+      "age": 21,
+      "major": "Business Studies",
+      "email": "alaister@example.com",
+      "id": "4"
+    },
+    {
+      "id": "2655",
+      "name": "Tim Cook",
+      "age": 22,
+      "major": "EEE",
+      "email": "tim@example.com"
+    },
+    {
+      "id": "114d",
+      "name": "Tim Cook",
+      "age": 22,
+      "major": "EEE",
+      "email": "tim@example.com"
+    },
+    {
+      "id": "6432",
+      "name": "Tim Cook",
+      "age": 22,
+      "major": "EEE",
+      "email": "tim@example.com"
+    }
+  ]
+}
