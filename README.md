@@ -17,6 +17,6 @@ Newman
 Newman Html Report Library
 
 ## newman-HTML-Report
-<img width="736" height="857" alt="image" src="Newman HTML report image/SC1.jpg" />
-<img width="737" height="869" alt="image" src="" />
-<img width="737" height="473" alt="image" src="" />
+<img width="800" height="800" alt="image" src="Newman HTML report image/SC1.jpg" />
+<img width="800" height="700" alt="image" src="Newman HTML report image/SC2.jpg" />
+<img width="800" height="400" alt="image" src="Newman HTML report image/SC3.jpg" />
