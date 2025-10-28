@@ -32,6 +32,7 @@ This project demonstrates API testing using Postman, providing a collection of t
 => Export the postman collection file in you local machine. <br>
 => Run the postman collection in newman. [cmd prompt: newman run file_name] <br>
 => Install the Newman HTML extra report file. [cmd prompt: npm install -g newman-reporter-htmlextra] <br>
+<br>
 => Generate the Newman HTML extra report. [cmd prompt: newman run collection.json -r htmlextra] <br>  
 ## newman-HTML-Report
 
